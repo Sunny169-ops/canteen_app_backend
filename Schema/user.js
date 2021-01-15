@@ -1,20 +1,10 @@
-const mongoose = require("mongoose");
-const UserSchema = mongoose.Schema({
-    t_number:{
-        type:String
+const Sequelize = require("sequelize");
+
+module.exports.UserSchema = {
+    t_number: {
+        type: Sequelize.STRING
     },
     coins:{
-        type:Number
-    },
-    created_at: { type: Date },
-    updated_at: { type: Date },
-});
-UserSchema.pre("save", function (next) {
-    now = new Date();
-    this.updated_at = now;
-    if (!this.created_at) {
-        this.created_at = now;
+        type: Sequelize.INTEGER
     }
-    next();
-});
-module.exports = mongoose.model("user", UserSchema);
+}

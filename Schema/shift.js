@@ -1,23 +1,16 @@
-const mongoose = require("mongoose");
-const ShiftSchema = mongoose.Schema({
-    name:{
-        type:String
+const Sequelize = require("sequelize");
+
+module.exports.ShiftSchema = {
+    name: {
+        type: Sequelize.STRING
+    },
+    sub_name: {
+        type: Sequelize.STRING
     },
     startTime:{
-        type:Number
+        type: Sequelize.INTEGER
     },
-    endTime:{
-        type:Number
-    },
-    created_at: { type: Date },
-    updated_at: { type: Date },
-});
-ShiftSchema.pre("save", function (next) {
-    now = new Date();
-    this.updated_at = now;
-    if (!this.created_at) {
-        this.created_at = now;
+    endTime: {
+        type: Sequelize.INTEGER
     }
-    next();
-});
-module.exports = mongoose.model("shift", ShiftSchema);
+}

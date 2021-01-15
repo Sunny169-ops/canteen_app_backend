@@ -1,31 +1,20 @@
-const mongoose = require("mongoose");
-const CoinsLogSchema = mongoose.Schema({
-    order_id:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "order",
+const Sequelize = require("sequelize");
+
+module.exports.CoinsLogSchema = {
+    order_id: {
+        type: Sequelize.INTEGER,
     },
-    user_id:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "user",
+    user_id: {
+        type: Sequelize.INTEGER,
     },
     coins_efficted:{
-        type:Number
+        type: Sequelize.INTEGER
     },
-    updates_coins:{
-        type:Number
+    updates_coins: {
+        type: Sequelize.INTEGER
     },
-    source:{
-        type:Number
-    },
-    created_at: { type: Date },
-    updated_at: { type: Date },
-});
-CoinsLogSchema.pre("save", function (next) {
-    now = new Date();
-    this.updated_at = now;
-    if (!this.created_at) {
-        this.created_at = now;
+    source: {
+        type: Sequelize.INTEGER
     }
-    next();
-});
-module.exports = mongoose.model("coins_log", CoinsLogSchema);
+  
+}

@@ -1,24 +1,16 @@
-const mongoose = require("mongoose");
-const ProductsSchema = mongoose.Schema({
-    name:{
-        type:String
+const Sequelize = require("sequelize");
+
+module.exports.ProductsSchema = {
+    name: {
+        type: Sequelize.STRING
     },
     price:{
-        type:Number
+        type: Sequelize.INTEGER
     },
-    shift:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "Shift",
-    }],
-    created_at: { type: Date },
-    updated_at: { type: Date },
-});
-ProductsSchema.pre("save", function (next) {
-    now = new Date();
-    this.updated_at = now;
-    if (!this.created_at) {
-        this.created_at = now;
+    plant_id:{
+        type:Sequelize.INTEGER
+    },
+    image:{
+        type:Sequelize.STRING
     }
-    next();
-});
-module.exports = mongoose.model("products", ProductsSchema);
+}
