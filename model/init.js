@@ -11,5 +11,5 @@ module.exports=function(){
  util.model.ProductOrder=sequelize.define("products_in_order",ProductOrdermodel.ProductsInOrderSchema,{freezeTableName: true,})
  util.model.CoinsLog=sequelize.define("coins_log",CoinsLogmodel.CoinsLogSchema,{freezeTableName: true,})
 
- util.model.Order.hasMany(util.model.ProductOrder)
+ util.model.Order.hasMany(util.model.ProductOrder,{foreignKey:"order_id"})
 }
