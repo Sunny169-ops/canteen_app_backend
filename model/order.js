@@ -1,20 +1,20 @@
 const Sequelize = require("sequelize");
 
 module.exports.OrderSchema = {
-    productId: {
+    user_id: {
+        type: Sequelize.INTEGER
+
+    },
+        total_coins: {
         type: Sequelize.INTEGER
     },
     status:{
         type: Sequelize.INTEGER
     },
-    orderDate: {
-        type: Sequelize.INTEGER
+    order_date: {
+        type: Sequelize.DATE
     },
-    user: {
-        type: Sequelize.INTEGER
-
-    },
-    total_coins: {
+    order_Type: {
         type: Sequelize.INTEGER
     }
 }

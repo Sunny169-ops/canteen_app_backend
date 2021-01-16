@@ -7,7 +7,7 @@ module.exports.CoinsLogSchema = {
     user_id: {
         type: Sequelize.INTEGER,
     },
-    coins_efficted:{
+    coins_effected:{
         type: Sequelize.INTEGER
     },
     updates_coins: {
