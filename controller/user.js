@@ -3,30 +3,14 @@ var util=require("../util");
 // var modelInit=require("../model/init");
 
 module.exports.getUser=async (req,res)=>{
-
-    
-//   util.model.User.create({firstName:"Aniket",lastName:"Verma"}).then((data)=>{
-//        console.log(data)
-//        res.send(data)
-//    }).catch((err)=>{
-//        res.send({message:err})
-//    })
-//    util.model.User.findAll().then((data)=>{
-//        console.log(data)
-//        res.send(data)
-//    }).catch((err)=>{
-//        res.send({message:err})
-//    })
-// res.send("success")
-// try{
-//     let users=await util.model.User.findAll()
-//     res.send(users)
-// }catch(err){
-//     res.send({message:err})
-// }
+try{
+    let users=await util.model.User.findAll()
+    res.send(users)
+}catch(err){
+    res.send({message:err})
+}
  console.log("hello")
 }
-
 module.exports.createUser = (req, res) => {
     try {
     //util.model.Demo.sync({force:true});
